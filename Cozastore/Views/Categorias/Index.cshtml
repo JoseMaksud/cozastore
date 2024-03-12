@@ -1,22 +1,31 @@
-@model IEnumerable<Cozastore.Models.Cor>
+@model IEnumerable<Cozastore.Models.Categoria>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Cores</h1>
+<h1>Lista de Categorias</h1>
 
 <p>
-    <a asp-action="Create">Adicionar</a>
+    <a class="btn btn-primary my-2" asp-action="Create">
+
+        Adicionar
+        </a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CodigoHexa)
+                @Html.DisplayNameFor(model => model.Filtrar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaMae)
             </th>
             <th></th>
         </tr>
@@ -28,7 +37,13 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoHexa)
+                @Html.DisplayFor(modelItem => item.Filtrar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaMae.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
