@@ -1,6 +1,7 @@
 @model Cozastore.Models.Categoria
 @{
-    ViewData["Title"] = "Categoria";
+    ViewData["Title"] = "Categorias";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h1>Categoria</h1>
@@ -34,9 +35,9 @@
             <div class="form-group mb-3">
                 <label asp-for="Foto" class="control-label"></label>
                 <img id="Preview" class="img-fluid w-100" />
-                <input type="file" asp-for="Foto" class="form-control" accept=".jpg,.jepg,.png,.gif,.jfif"/>
+                <input type="file" asp-for="Foto" class="form-control" accept=".jpg,.jpeg,.png,.gif,.jfif" />
             </div>
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
@@ -51,12 +52,14 @@
     <script>
         window.addEventListener('load', function() {
             document.querySelector('input[type=file]')
-                .addEventListener('change', function() {
-                    if (this.files && this.files[0]) {
-                        var img = document.getElementById('Preview');
-                        img.src = URL.createObjectURL(this.files[0]);
-                    }
-                })
+            .addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    var img = document.getElementById('Preview');
+                    img.src = URL.createObjectURL(this.files[0]);
+                }
+            });
         });
+
     </script>
 }
+
